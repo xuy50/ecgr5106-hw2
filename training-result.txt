@@ -1814,7 +1814,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=10, bias=True)
                 )
 
-                Selected AlexNet parameter count: 4903242
+                Selected ResNet11 parameter count: 4903242
 
                 Epoch 1/30: Train Loss: 1.3957, Val Loss: 1.2786, Val Acc: 0.5596
                 Epoch 2/30: Train Loss: 0.9566, Val Loss: 0.8934, Val Acc: 0.6846
@@ -1944,7 +1944,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=10, bias=True)
                 )
 
-                Selected AlexNet parameter count: 4903242
+                Selected ResNet11 parameter count: 4903242
 
                 Epoch 1/30: Train Loss: 1.4470, Val Loss: 1.6736, Val Acc: 0.4622
                 Epoch 2/30: Train Loss: 1.0401, Val Loss: 0.9094, Val Acc: 0.6792
@@ -2073,7 +2073,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=100, bias=True)
                 )
 
-                Selected AlexNet parameter count: 4949412
+                Selected ResNet11 parameter count: 4949412
 
                 Epoch 1/30: Train Loss: 3.6460, Val Loss: 3.1759, Val Acc: 0.2136
                 Epoch 2/30: Train Loss: 2.8638, Val Loss: 2.6525, Val Acc: 0.3116
@@ -2290,7 +2290,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=100, bias=True)
                 )
 
-                Selected AlexNet parameter count: 4949412
+                Selected ResNet11 parameter count: 4949412
 
                 Epoch 1/30: Train Loss: 3.7985, Val Loss: 3.3721, Val Acc: 0.1816
                 Epoch 2/30: Train Loss: 3.0562, Val Loss: 2.8287, Val Acc: 0.2828
@@ -2537,7 +2537,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=10, bias=True)
                 )
 
-                Selected AlexNet parameter count: 11173962
+                Selected ResNet18 parameter count: 11173962
 
                 Epoch 1/30: Train Loss: 1.4778, Val Loss: 1.1890, Val Acc: 0.5706
                 Epoch 2/30: Train Loss: 1.0122, Val Loss: 0.9401, Val Acc: 0.6598
@@ -2699,7 +2699,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=10, bias=True)
                 )
 
-                Selected AlexNet parameter count: 11173962
+                Selected ResNet18 parameter count: 11173962
 
                 Epoch 1/30: Train Loss: 1.5472, Val Loss: 1.2079, Val Acc: 0.5588
                 Epoch 2/30: Train Loss: 1.1305, Val Loss: 1.3417, Val Acc: 0.5490
@@ -2856,7 +2856,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=100, bias=True)
                 )
 
-                Selected AlexNet parameter count: 11220132
+                Selected ResNet18 parameter count: 11220132
 
                 Epoch 1/30: Train Loss: 3.8065, Val Loss: 3.5199, Val Acc: 0.1638
                 Epoch 2/30: Train Loss: 3.0560, Val Loss: 2.8903, Val Acc: 0.2600
@@ -3105,7 +3105,7 @@ p3:
                   (fc): Linear(in_features=512, out_features=100, bias=True)
                 )
 
-                Selected AlexNet parameter count: 11220132
+                Selected ResNet18 parameter count: 11220132
 
                 Epoch 1/30: Train Loss: 3.9473, Val Loss: 3.6838, Val Acc: 0.1384
                 Epoch 2/30: Train Loss: 3.3722, Val Loss: 3.1904, Val Acc: 0.2070

@@ -102,6 +102,7 @@ I implemented both **ResNet-11** and **ResNet-18** and compared their performanc
 - **ResNet-18 consistently outperformed ResNet-11** in both CIFAR-10 and CIFAR-100.
 - Using dropout required **more epochs** to reach similar performance.
 - **For CIFAR-100, both networks took significantly longer to converge**, similar to previous observations with AlexNet and VGG.
+- **Larger and deeper models tend to have smoother and more stable loss curves**, as seen in ResNet-18 compared to ResNet-11.
 
 #### **Training and Validation Loss & Accuracy Plots:**
 - **ResNet-11 Results (CIFAR-10):**  
@@ -115,10 +116,21 @@ I implemented both **ResNet-11** and **ResNet-18** and compared their performanc
 
 ---
 
+### **Complexity Growth with Network Depth**
+As network depth increases, complexity grows in multiple aspects:
+- **Parameter Count Increase:** ResNet-18 has significantly more parameters than ResNet-11, allowing it to learn more complex patterns but also increasing computational cost.
+- **Training Time:** Deeper models require more time per epoch due to increased layers and computations.
+- **Convergence Behavior:** More complex models often show smoother and more stable training curves.
+- **Generalization:** Deeper networks tend to generalize better, leading to higher accuracy, as seen with ResNet-18 consistently outperforming ResNet-11.
+- **Memory Usage:** Larger networks require more memory for both training and inference.
+
+Overall, **ResNet-18 achieves better accuracy at the cost of increased computational demand**, demonstrating the expected trade-off when increasing network depth.
+
+---
+
 ## **Final Conclusions**
 - **Model complexity impacts accuracy**: Deeper models like **ResNet-18 and VGG-11** performed better than simpler models like **ResNet-11 and AlexNet**.
 - **Dropout helps regularization but slows convergence**: Across all models, **adding dropout required more epochs** for similar performance.
 - **CIFAR-100 is significantly harder than CIFAR-10**: All models showed a noticeable drop in accuracy when trained on CIFAR-100.
 - **Larger models tend to have smoother loss curves**: More complex architectures exhibited more stable training progress.
 - **ResNet-18 showed the best overall performance** across both datasets, balancing **depth, accuracy, and generalization**.
-
