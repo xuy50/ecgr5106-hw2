@@ -112,6 +112,7 @@ I implemented both **ResNet-11** and **ResNet-18** and compared their performanc
 - **Training time increases significantly** with ResNet-18 due to the higher number of parameters.
 - **Better generalization** was observed in ResNet-18, with validation accuracy improvements over ResNet-11.
 - The deeper network resulted in **smoother and more stable loss curves**, demonstrating better convergence behavior.
+- Overall, **ResNet-18 achieves better accuracy at the cost of increased computational demand**, demonstrating the expected trade-off when increasing network depth.
 
 #### **Training and Validation Results**
 | Model      | Dataset   | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
@@ -140,18 +141,6 @@ I implemented both **ResNet-11** and **ResNet-18** and compared their performanc
   ![ResNet-11 Results (CIFAR-100)](./images/p3_100_ResNet11_results.png)
 - **ResNet-18 Results (CIFAR-100):**  
   ![ResNet-18 Results (CIFAR-100)](./images/p3_100_ResNet18_results.png)
-
----
-
-### **Complexity Growth with Network Depth**
-As network depth increases, complexity grows in multiple aspects:
-- **Parameter Count Increase:** ResNet-18 has significantly more parameters than ResNet-11, allowing it to learn more complex patterns but also increasing computational cost.
-- **Training Time:** Deeper models require more time per epoch due to increased layers and computations.
-- **Convergence Behavior:** More complex models often show smoother and more stable training curves.
-- **Generalization:** Deeper networks tend to generalize better, leading to higher accuracy, as seen with ResNet-18 consistently outperforming ResNet-11.
-- **Memory Usage:** Larger networks require more memory for both training and inference.
-
-Overall, **ResNet-18 achieves better accuracy at the cost of increased computational demand**, demonstrating the expected trade-off when increasing network depth.
 
 ---
 
