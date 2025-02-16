@@ -12,12 +12,18 @@
 
 ## Problem 1: AlexNet on CIFAR-10 and CIFAR-100
 
-### **1.a Original and Simplified AlexNet**
+### **Original and Simplified AlexNet**
 I implemented both the original AlexNet and a simplified version adapted for CIFAR-10 and CIFAR-100 datasets. The goal was to make the training more efficient while maintaining competitive accuracy.
 
-#### **Network Details:**
+### **Network Details:**
 - **Original AlexNet**: 5 convolutional layers, 3 fully connected layers, total parameters **23,272,266**.
 - **Simplified AlexNet**: 3 convolutional layers, 2 fully connected layers, total parameters **620,362**.
+
+### **Complexity Growth with Network Depth:**
+- The **simplified AlexNet** reduces the number of parameters significantly, making training faster and more efficient while maintaining reasonable accuracy.
+- The **original AlexNet** has a higher capacity for learning but at the cost of increased computational complexity and risk of overfitting on small datasets.
+- **Larger models take longer to converge**, and dropout further increases training time.
+- The **fully connected layers contribute significantly to parameter count**, making the model prone to overfitting compared to deeper CNN-based architectures like VGG or ResNet.
 
 #### **Training and Validation Results (CIFAR-10)**
 | Model                  | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
@@ -59,8 +65,18 @@ I implemented both the original AlexNet and a simplified version adapted for CIF
 
 ## Problem 2: VGG on CIFAR-10 and CIFAR-100
 
-### **2.a VGG Configuration Selection**
+### **VGG Configuration Selection**
 The goal was to select a VGG configuration with a parameter count close to AlexNet. VGG-11 was chosen as it has a similar number of parameters.
+
+### **Network Details:**
+- **VGG-11**: 8 convolutional layers, 3 fully connected layers, total parameters **28,512,740**.
+
+### **Complexity Growth with Network Depth:**
+- Compared to AlexNet, VGG-11 has a deeper architecture but maintains a **structured, uniform kernel size**, leading to improved feature extraction.
+- The increased depth improves hierarchical representation learning, making VGG more effective for complex datasets like CIFAR-100.
+- Training time **increases significantly** compared to AlexNet due to a larger number of parameters.
+- **Smoother loss curves** were observed, indicating improved stability during training.
+- The fully connected layers still contribute heavily to the parameter count, though convolutional layers dominate learning.
 
 #### **Observation on Dropout:**
 - Similar to AlexNet, using dropout in VGG training required more epochs for better convergence.
@@ -83,8 +99,19 @@ The goal was to select a VGG configuration with a parameter count close to AlexN
 
 ## Problem 3: ResNet-11 vs ResNet-18 on CIFAR-10 and CIFAR-100
 
-### **3.a Comparing ResNet Architectures**
+### **Comparing ResNet Architectures**
 I implemented both **ResNet-11** and **ResNet-18** and compared their performance. ResNet-18 is a deeper architecture and expected to generalize better.
+
+### **Network Details:**
+- **ResNet-11**: 10 convolutional layers with residual connections, total parameters **4,949,412**.
+- **ResNet-18**: 17 convolutional layers with residual connections, total parameters **11,173,962**.
+
+### **Complexity Growth with Network Depth:**
+- **Residual connections** in ResNet mitigate vanishing gradient issues, allowing deeper models like **ResNet-18 to outperform ResNet-11**.
+- The increased depth of ResNet-18 allows for **better feature extraction**, improving accuracy on CIFAR-100.
+- **Training time increases significantly** with ResNet-18 due to the higher number of parameters.
+- **Better generalization** was observed in ResNet-18, with validation accuracy improvements over ResNet-11.
+- The deeper network resulted in **smoother and more stable loss curves**, demonstrating better convergence behavior.
 
 #### **Training and Validation Results**
 | Model      | Dataset   | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
