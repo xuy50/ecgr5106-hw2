@@ -31,7 +31,7 @@ I implemented both the original AlexNet and a simplified version adapted for CIF
 | Original AlexNet      | No      | 0.5735           | 0.7400         | 75.66%       |
 | Original AlexNet      | Yes     | 1.0920           | 1.1594         | 64.48%       |
 | Simplified AlexNet    | No      | 0.4182           | 0.6253         | 79.86%       |
-| Simplified AlexNet    | Yes     | 0.4876           | 0.6891         | 76.20%       |
+| Simplified AlexNet    | Yes     | 0.7077           | 0.6982         | 77.28%       |
 
 #### **Observation on Dropout:**
 - Dropout helps in reducing overfitting but may slow down convergence in the initial training stages.
@@ -43,8 +43,8 @@ I implemented both the original AlexNet and a simplified version adapted for CIF
 |------------------------|---------|------------------|----------------|--------------|
 | Original AlexNet      | No      | 1.8342           | 2.6812         | 35.32%       |
 | Original AlexNet      | Yes     | 3.3233           | 3.3519         | 19.76%       |
-| Simplified AlexNet    | No      | 1.2021           | 2.4153         | 42.15%       |
-| Simplified AlexNet    | Yes     | 1.3460           | 2.5679         | 39.50%       |
+| Simplified AlexNet    | No      | 1.5669           | 2.0525         | 46.30%       |
+| Simplified AlexNet    | Yes     | 2.5134           | 2.5959         | 37.32%       |
 
 #### **Observations:**
 - The simplified AlexNet performed comparably to the original AlexNet with **far fewer parameters**.
@@ -86,8 +86,14 @@ The goal was to select a VGG configuration with a parameter count close to AlexN
 #### **Training and Validation Results (CIFAR-10)**
 | Model      | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
 |-----------|---------|------------------|----------------|--------------|
-| VGG-11   | No      | 0.4315           | 0.6032         | 78.45%       |
-| VGG-11   | Yes     | 0.5102           | 0.6501         | 75.30%       |
+| VGG-11   | No      | 0.6793           | 0.7477         | 73.96%       |
+| VGG-11   | Yes     | 1.0062           | 1.1170         | 63.96%       |
+
+#### **Training and Validation Results (CIFAR-100)**
+| Model      | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
+|-----------|---------|------------------|----------------|--------------|
+| VGG-11   | No      | 2.6612           | 2.7561         | 31.82%       |
+| VGG-11   | Yes     | 3.3721           | 3.8028         | 12.44%       |
 
 #### **Training and Validation Loss & Accuracy Plots:**
 - **VGG-11 Results (CIFAR-10):**  
@@ -114,17 +120,21 @@ I implemented both **ResNet-11** and **ResNet-18** and compared their performanc
 - The deeper network resulted in **smoother and more stable loss curves**, demonstrating better convergence behavior.
 - Overall, **ResNet-18 achieves better accuracy at the cost of increased computational demand**, demonstrating the expected trade-off when increasing network depth.
 
-#### **Training and Validation Results**
-| Model      | Dataset   | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
-|-----------|----------|---------|------------------|----------------|--------------|
-| ResNet-11 | CIFAR-10  | No      | 0.4306           | 0.6108         | 78.92%       |
-| ResNet-11 | CIFAR-10  | Yes     | 0.5012           | 0.6591         | 75.60%       |
-| ResNet-18 | CIFAR-10  | No      | 0.4123           | 0.5832         | 80.10%       |
-| ResNet-18 | CIFAR-10  | Yes     | 0.4801           | 0.6257         | 77.45%       |
-| ResNet-11 | CIFAR-100 | No      | 1.9521           | 2.6529         | 37.20%       |
-| ResNet-11 | CIFAR-100 | Yes     | 2.2134           | 2.8401         | 33.85%       |
-| ResNet-18 | CIFAR-100 | No      | 1.8442           | 2.4905         | 40.55%       |
-| ResNet-18 | CIFAR-100 | Yes     | 2.0056           | 2.6773         | 36.92%       |
+#### **Training and Validation Results (CIFAR-10)**
+| Model      | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
+|-----------|---------|------------------|----------------|--------------|
+| ResNet-11 | No      | 0.1086           | 0.3308         | 90.10%       |
+| ResNet-11 | Yes     | 0.1948           | 0.3000         | 90.22%       |
+| ResNet-18 | No      | 0.0975           | 0.3206         | 90.48%       |
+| ResNet-18 | Yes     | 0.2102           | 0.2998         | 90.14%       |
+
+#### **Training and Validation Results (CIFAR-100)**
+| Model      | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
+|-----------|---------|------------------|----------------|--------------|
+| ResNet-11 | No      | 0.2381           | 1.6823         | 63.34%       |
+| ResNet-11 | Yes     | 0.5855           | 1.4285         | 64.22%       |
+| ResNet-18 | No      | 0.1868           | 1.6859         | 64.54%       |
+| ResNet-18 | Yes     | 0.6554           | 1.4481         | 63.74%       |
 
 #### **Observations:**
 - **ResNet-18 consistently outperformed ResNet-11** in both CIFAR-10 and CIFAR-100.
@@ -150,3 +160,5 @@ I implemented both **ResNet-11** and **ResNet-18** and compared their performanc
 - **CIFAR-100 is significantly harder than CIFAR-10**: All models showed a noticeable drop in accuracy when trained on CIFAR-100.
 - **Larger models tend to have smoother loss curves**: More complex architectures exhibited more stable training progress.
 - **ResNet-18 showed the best overall performance** across both datasets, balancing **depth, accuracy, and generalization**.
+
+
