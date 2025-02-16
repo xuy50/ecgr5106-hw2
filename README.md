@@ -28,7 +28,6 @@ I implemented both the original AlexNet and a simplified version adapted for CIF
 | Simplified AlexNet    | Yes     | 0.4876           | 0.6891         | 76.20%       |
 
 #### **Observation on Dropout:**
-- Training with dropout generally requires more epochs to achieve similar convergence compared to training without dropout.
 - Dropout helps in reducing overfitting but may slow down convergence in the initial training stages.
 - For CIFAR-100, more epochs are needed compared to CIFAR-10 to achieve stable convergence.
 - Larger and more complex models tend to have smoother and more stable loss and accuracy curves during training.
@@ -85,7 +84,24 @@ The goal was to select a VGG configuration with a parameter count close to AlexN
 ## Problem 3: ResNet-11 vs ResNet-18 on CIFAR-10 and CIFAR-100
 
 ### **3.a Comparing ResNet Architectures**
-I implemented both ResNet-11 and ResNet-18 and compared their performance.
+I implemented both **ResNet-11** and **ResNet-18** and compared their performance. ResNet-18 is a deeper architecture and expected to generalize better.
+
+#### **Training and Validation Results**
+| Model      | Dataset   | Dropout | Final Train Loss | Final Val Loss | Val Accuracy |
+|-----------|----------|---------|------------------|----------------|--------------|
+| ResNet-11 | CIFAR-10  | No      | 0.4306           | 0.6108         | 78.92%       |
+| ResNet-11 | CIFAR-10  | Yes     | 0.5012           | 0.6591         | 75.60%       |
+| ResNet-18 | CIFAR-10  | No      | 0.4123           | 0.5832         | 80.10%       |
+| ResNet-18 | CIFAR-10  | Yes     | 0.4801           | 0.6257         | 77.45%       |
+| ResNet-11 | CIFAR-100 | No      | 1.9521           | 2.6529         | 37.20%       |
+| ResNet-11 | CIFAR-100 | Yes     | 2.2134           | 2.8401         | 33.85%       |
+| ResNet-18 | CIFAR-100 | No      | 1.8442           | 2.4905         | 40.55%       |
+| ResNet-18 | CIFAR-100 | Yes     | 2.0056           | 2.6773         | 36.92%       |
+
+#### **Observations:**
+- **ResNet-18 consistently outperformed ResNet-11** in both CIFAR-10 and CIFAR-100.
+- Using dropout required **more epochs** to reach similar performance.
+- **For CIFAR-100, both networks took significantly longer to converge**, similar to previous observations with AlexNet and VGG.
 
 #### **Training and Validation Loss & Accuracy Plots:**
 - **ResNet-11 Results (CIFAR-10):**  
@@ -98,4 +114,11 @@ I implemented both ResNet-11 and ResNet-18 and compared their performance.
   ![ResNet-18 Results (CIFAR-100)](./images/p3_100_ResNet18_results.png)
 
 ---
+
+## **Final Conclusions**
+- **Model complexity impacts accuracy**: Deeper models like **ResNet-18 and VGG-11** performed better than simpler models like **ResNet-11 and AlexNet**.
+- **Dropout helps regularization but slows convergence**: Across all models, **adding dropout required more epochs** for similar performance.
+- **CIFAR-100 is significantly harder than CIFAR-10**: All models showed a noticeable drop in accuracy when trained on CIFAR-100.
+- **Larger models tend to have smoother loss curves**: More complex architectures exhibited more stable training progress.
+- **ResNet-18 showed the best overall performance** across both datasets, balancing **depth, accuracy, and generalization**.
 
